@@ -28,12 +28,12 @@ def day_object():
 
 def is_at_home():
     """
-    The function `is_at_home()` checks if today is Wednesday or Friday.
+    The function `is_at_home()` checks if today is Monday, Wednesday or Friday.
     :return: The function is_at_home() returns True if today is Wednesday (weekday 2) or Friday (weekday
     4), and False otherwise.
     """
     today = datetime.now().weekday()
-    return today in [2, 4]
+    return today in [0, 2, 4]
 
 # Request that pass the object of the day, hour, minute and second to becode graph regarding the time frame which the button was pushed
 def get_junior_today_attendance(token):
@@ -48,14 +48,14 @@ def get_junior_today_attendance(token):
     
     junior_payload = {
     "operationName": "get_junior_today_attendance", 
-     "variables": {"day": day_object()}, 
-     "extensions": {
+    "variables": {"day": day_object()}, 
+    "extensions": {
         "persistedQuery": {
             "version": 1, 
             "sha256Hash": "2d903b4f72e5ce35ab4239a53e48612aec6e5469eaeb76de603b68bac7f6410c"
             }
         }
-     }
+    }
     resp = requests.post(
     'https://graph.becode.org/',
     json=junior_payload,
