@@ -3,6 +3,8 @@
 name: Schedule triggered workflow
 
 # Workflow runs when triggered by scheduler.
+# To enable this workflow, you must uncomment the `on: workflow_dispatch...` lines below.
+'''
 on:
   workflow_dispatch:
   schedule:
@@ -13,7 +15,7 @@ on:
     - cron: "30 11 * * 1,2,3,4,5"
       
     - cron: "04 12 * * 1,2,3,4,5"
-      
+'''      
 jobs: 
   # the name of a job
   run_lola_run:
